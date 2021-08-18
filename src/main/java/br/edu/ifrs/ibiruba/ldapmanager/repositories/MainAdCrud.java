@@ -23,8 +23,11 @@ public class MainAdCrud {
 	
 	//por enquanto o tipo de usuário é Aluno e User, não temos
 	public MainAdCrud(String tipoUsuario) {
-		if(tipoUsuario.equalsIgnoreCase("aluno")) caminhoCnOuUnidadeOrganizacional = "OU=Alunos".trim(); 
-		else if(tipoUsuario.equalsIgnoreCase("servidor")) caminhoCnOuUnidadeOrganizacional = "OU=Servidores".trim();
+		if(tipoUsuario.equalsIgnoreCase("integrado")) caminhoCnOuUnidadeOrganizacional = "OU=Integrado,".trim()+"OU=Alunos".trim(); 
+		else if(tipoUsuario.equalsIgnoreCase("superior")) caminhoCnOuUnidadeOrganizacional = "OU=Superior,".trim()+"OU=Alunos".trim(); 
+		else if(tipoUsuario.equalsIgnoreCase("tae")) caminhoCnOuUnidadeOrganizacional = "OU=Taes,".trim() +"OU=Servidores".trim();
+		else if(tipoUsuario.equalsIgnoreCase("docente")) caminhoCnOuUnidadeOrganizacional = "OU=Docentes,".trim() +"OU=Servidores".trim();
+		else if(tipoUsuario.equalsIgnoreCase("tercerizado")) caminhoCnOuUnidadeOrganizacional = "OU=Tercerizados,".trim() +"OU=Servidores".trim();
 		else caminhoCnOuUnidadeOrganizacional ="CN=Users".trim();
 	}
 	
@@ -58,8 +61,8 @@ public class MainAdCrud {
 		Properties env = new Properties();
 		env.put(Context.INITIAL_CONTEXT_FACTORY, "com.sun.jndi.ldap.LdapCtxFactory");
 		env.put(Context.PROVIDER_URL, "ldap://192.168.56.48:389/DC=IBIRUBA,DC=IFRS");
-		env.put(Context.SECURITY_PRINCIPAL, "gustavo.paulus@IBIRUBA.IFRS");
-		env.put(Context.SECURITY_CREDENTIALS, "StrongPassword123");
+		env.put(Context.SECURITY_PRINCIPAL, "Administrator@IBIRUBA.IFRS");
+		env.put(Context.SECURITY_CREDENTIALS, "@lface#81");
 		try {
 			connection = new InitialDirContext(env);
 			System.out.println("Hello World!" + connection);
@@ -270,6 +273,8 @@ public HashMap<String, User> returnUserHashMap() {
 									user.setGivenName(actualEnumaration.toString());
 								else if(attributeID.trim().equals("name".trim()))
 									user.setName(actualEnumaration.toString());
+								else if(attributeID.trim().equals("ou".trim()))
+									user.setOu(actualEnumaration.toString());
 						}
 						}
 				}
@@ -349,11 +354,14 @@ public HashMap<String, User> returnUserHashMap() {
 
 	public static void main(String[] args) throws NamingException {
 
-		MainAdCrud app = new MainAdCrud("Users");
+		MainAdCrud app = new MainAdCrud("user");
 		app.newConnection();
+		app.listAllUsersAndAllAttributes();
 		app.validateUser("gustavo.paulus", "StrongPassword123");
-	
-	//	 app.listAllUsersAndAllAttributes();
+		app.listAllUsersAndAllAttributes();
+		
+		app.changePassword("gustavo.paulus", "StrongPassword080811");
+		 
 		 //app.listAllUser();
 		/*
 		User user = new User();

@@ -9,6 +9,7 @@ public class User {
 	private String sn;
 	private String mail;
 	private String password;
+	private String ou;
 	
 	
 
@@ -68,6 +69,16 @@ public class User {
 
 	public void setMail(String mail) {
 		this.mail = mail;
+	}
+	
+	
+
+	public String getOu() {
+		return ou;
+	}
+
+	public void setOu(String ou) {
+		this.ou = ou;
 	}
 
 	@Override
