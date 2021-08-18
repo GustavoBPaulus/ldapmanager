@@ -2,8 +2,8 @@ package br.edu.ifrs.ibiruba.ldapmanager.services;
 
 import java.util.Random;
 
-import br.edu.ifrs.ibiruba.conectaldap.domainldapprincipal.model.MessageModel;
-import br.edu.ifrs.ibiruba.ldapmanager.useful.MainAdCrud;
+import br.edu.ifrs.ibiruba.ldapmanager.entities.MessageModel;
+import br.edu.ifrs.ibiruba.ldapmanager.repositories.MainAdCrud;
 import br.edu.ifrs.ibiruba.ldapmanager.useful.SendMail;
 
 public class ResetPasswordService {

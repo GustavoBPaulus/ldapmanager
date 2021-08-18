@@ -11,7 +11,9 @@ import javax.mail.internet.AddressException;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
-import br.edu.ifrs.ibiruba.conectaldap.domainldapprincipal.model.MessageModel;
+import br.edu.ifrs.ibiruba.ldapmanager.entities.MessageModel;
+
+
 
 public class SendMail {
 

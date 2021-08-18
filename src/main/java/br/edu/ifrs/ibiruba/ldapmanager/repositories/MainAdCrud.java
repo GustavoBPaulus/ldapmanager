@@ -1,4 +1,4 @@
-package br.edu.ifrs.ibiruba.ldapmanager.useful;
+package br.edu.ifrs.ibiruba.ldapmanager.repositories;
 
 
 import java.io.UnsupportedEncodingException;
@@ -12,8 +12,10 @@ import javax.naming.NamingEnumeration;
 import javax.naming.NamingException;
 import javax.naming.directory.*;
 
+import br.edu.ifrs.ibiruba.ldapmanager.entities.User;
 
-import br.edu.ifrs.ibiruba.conectaldap.domainldapprincipal.model.User;
+
+
 
 public class MainAdCrud {
 	
@@ -32,8 +34,8 @@ public class MainAdCrud {
 		 boolean connected = false;
 		Properties env = new Properties();
 		env.put(Context.INITIAL_CONTEXT_FACTORY, "com.sun.jndi.ldap.LdapCtxFactory");
-		env.put(Context.PROVIDER_URL, "ldap://192.168.56.8:389/DC=IBI,DC=IFRS,DC=LOCAL");
-		env.put(Context.SECURITY_PRINCIPAL, user+"@IBI.IFRS.LOCAL");
+		env.put(Context.PROVIDER_URL, "ldap://192.168.56.48:389/DC=IBIRUBA,DC=IFRS");
+		env.put(Context.SECURITY_PRINCIPAL, user+"@IBIRUBA.IFRS");
 		env.put(Context.SECURITY_CREDENTIALS, actualPassword );
 		try {
 			connection = new InitialDirContext(env);
@@ -55,9 +57,9 @@ public class MainAdCrud {
 		 DirContext connection = null;
 		Properties env = new Properties();
 		env.put(Context.INITIAL_CONTEXT_FACTORY, "com.sun.jndi.ldap.LdapCtxFactory");
-		env.put(Context.PROVIDER_URL, "ldap://192.168.56.8:389/DC=IBI,DC=IFRS,DC=LOCAL");
-		env.put(Context.SECURITY_PRINCIPAL, "Administrator@IBI.IFRS.LOCAL");
-		env.put(Context.SECURITY_CREDENTIALS, "print12");
+		env.put(Context.PROVIDER_URL, "ldap://192.168.56.48:389/DC=IBIRUBA,DC=IFRS");
+		env.put(Context.SECURITY_PRINCIPAL, "gustavo.paulus@IBIRUBA.IFRS");
+		env.put(Context.SECURITY_CREDENTIALS, "StrongPassword123");
 		try {
 			connection = new InitialDirContext(env);
 			System.out.println("Hello World!" + connection);
@@ -347,8 +349,9 @@ public HashMap<String, User> returnUserHashMap() {
 
 	public static void main(String[] args) throws NamingException {
 
-		MainAdCrud app = new MainAdCrud("Aluno");
-		
+		MainAdCrud app = new MainAdCrud("Users");
+		app.newConnection();
+		app.validateUser("gustavo.paulus", "StrongPassword123");
 	
 	//	 app.listAllUsersAndAllAttributes();
 		 //app.listAllUser();
