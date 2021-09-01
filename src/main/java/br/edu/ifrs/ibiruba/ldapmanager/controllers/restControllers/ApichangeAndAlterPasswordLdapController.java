@@ -1,4 +1,4 @@
-package br.edu.ifrs.ibiruba.ldapmanager.controllers;
+package br.edu.ifrs.ibiruba.ldapmanager.controllers.restControllers;
 
 
 import org.springframework.http.HttpStatus;

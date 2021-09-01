@@ -1,4 +1,4 @@
-package br.edu.ifrs.ibiruba.ldapmanager.controllers;
+package br.edu.ifrs.ibiruba.ldapmanager.controllers.viewControllers;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;

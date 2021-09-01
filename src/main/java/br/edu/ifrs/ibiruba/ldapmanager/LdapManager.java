@@ -4,10 +4,10 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class ContectaLdapApplication {
+public class LdapManager {
 
 	public static void main(String[] args) {
-		SpringApplication.run(ContectaLdapApplication.class, args);
+		SpringApplication.run(LdapManager.class, args);
 	}
 
 }

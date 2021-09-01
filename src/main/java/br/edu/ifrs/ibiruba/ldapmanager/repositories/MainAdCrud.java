@@ -354,13 +354,13 @@ public HashMap<String, User> returnUserHashMap() {
 
 	public static void main(String[] args) throws NamingException {
 
-		MainAdCrud app = new MainAdCrud("user");
+		MainAdCrud app = new MainAdCrud("tae");
 		app.newConnection();
 		app.listAllUsersAndAllAttributes();
-		app.validateUser("gustavo.paulus", "StrongPassword123");
+		app.validateUser("gustavo.paulus", "StrongPassword080811");
 		app.listAllUsersAndAllAttributes();
 		
-		app.changePassword("gustavo.paulus", "StrongPassword080811");
+		app.changePassword("gustavo.paulus", "StrongPassword123");
 		 
 		 //app.listAllUser();
 		/*
