@@ -23,7 +23,7 @@ public class ResetPasswordService {
 		// instância um objeto da classe Random usando o construtor padrão
 		Random gerador = new Random();
 		// Gera uma senha aleatória
-		String senhaTemporaria = "ifrs" + gerador.nextInt();
+		String senhaTemporaria = "IfrsIbi" + gerador.nextInt();
 		
 		
 		boolean changed = false;
@@ -50,6 +50,6 @@ public class ResetPasswordService {
 	}
 	
 	public static void main(String[] args) {
-		new ResetPasswordService().forgetPassword("gustavo.paulus", "aluno");
+		new ResetPasswordService().forgetPassword("gustavo.paulus", "tae");
 	}
 }

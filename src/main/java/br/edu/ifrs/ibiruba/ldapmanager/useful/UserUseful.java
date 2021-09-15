@@ -43,7 +43,7 @@ public class UserUseful {
 			}
 			
 		}
-
+		System.out.println("tipo de usuário: "+ specifiedTypeOfUser);
 		return specifiedTypeOfUser;
 	}
 }
